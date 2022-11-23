@@ -2048,7 +2048,6 @@ data = '''119
 
 depthReadings = [int(s) for s in data.split('\n')]
 
-#print(depthReadings)
 previousReading = False
 increase = 0
 decreased = 0
