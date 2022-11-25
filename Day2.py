@@ -1,4 +1,4 @@
-'''
+"""
 --- Day 2: Dive! ---
 
 Now, you need to figure out how to pilot this thing.
@@ -32,14 +32,14 @@ Your horizontal position and depth both start at 0. The steps above would then m
 After following these instructions, you would have a horizontal position of 15 and a depth of 10. (Multiplying these together produces 150.)
 
 Calculate the horizontal position and depth you would have after following the planned course. What do you get if you multiply your final horizontal position by your final depth?
-'''
-testData = '''forward 5
+"""
+testData = """forward 5
 down 5
 forward 8
 up 3
 down 8
-forward 2'''
-data = '''forward 7
+forward 2"""
+data = """forward 7
 forward 9
 forward 9
 down 3
@@ -1038,18 +1038,18 @@ forward 9
 forward 2
 forward 1
 forward 7
-forward 5'''
+forward 5"""
 
-directions = [s for s in data.split('\n')]
+directions = [s for s in data.split("\n")]
 horizontal = 0
 depth = 0
 for i in directions:
-    direction = [d for d in i.split(' ')]
-    if direction[0] == 'forward':
+    direction = [d for d in i.split(" ")]
+    if direction[0] == "forward":
         horizontal += int(direction[1])
-    elif direction[0] == 'down':
+    elif direction[0] == "down":
         depth += int(direction[1])
-    elif direction[0] == 'up':
+    elif direction[0] == "up":
         depth -= int(direction[1])
     else:
         print("error")
@@ -1057,7 +1057,7 @@ print(horizontal)
 print(depth)
 print(depth * horizontal)
 
-'''
+"""
 --- Part Two ---
 
 Based on your calculations, the planned course doesn't seem to make any sense. You find the submarine manual and discover that the process is actually slightly more complicated.
@@ -1084,24 +1084,24 @@ Now, the above example does something different:
 After following these new instructions, you would have a horizontal position of 15 and a depth of 60. (Multiplying these produces 900.)
 
 Using this new interpretation of the commands, calculate the horizontal position and depth you would have after following the planned course. What do you get if you multiply your final horizontal position by your final depth?
-'''
+"""
 horizontal = 0
 depth = 0
-aim =0 
+aim = 0
 for i in directions:
-    direction = [d for d in i.split(' ')]
-    if direction[0] == 'forward':
+    direction = [d for d in i.split(" ")]
+    if direction[0] == "forward":
         horizontal += int(direction[1])
-        
+
         if aim == 0:
             continue
         else:
-            depth += (int(direction[1])*aim)
-    elif direction[0] == 'down':
+            depth += int(direction[1]) * aim
+    elif direction[0] == "down":
         aim += int(direction[1])
-        
+
     else:
         aim -= int(direction[1])
-        
-    
-print(depth*horizontal)
+
+
+print(depth * horizontal)
